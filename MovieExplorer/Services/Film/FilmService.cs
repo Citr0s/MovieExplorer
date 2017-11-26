@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using MovieExplorer.Data.Film;
-using MovieExplorer.ViewModels;
+﻿using MovieExplorer.Data.Film;
 
 namespace MovieExplorer.Services.Film
 {
@@ -29,32 +27,6 @@ namespace MovieExplorer.Services.Film
             }
 
             response.Films = FilmMapper.Map(filmLookupResult.FilmData);
-            return response;
-        }
-    }
-
-    public class FilmMapper
-    {
-        public static List<FilmModel> Map(List<FilmData> filmData)
-        {
-            var response = new List<FilmModel>();
-
-            foreach (var film in filmData)
-            {
-                if (string.IsNullOrEmpty(film.Poster.Thumb) && string.IsNullOrEmpty(film.Poster.Large))
-                    continue;
-
-                if (string.IsNullOrEmpty(film.Poster.Thumb))
-                    film.Poster.Thumb = film.Poster.Large;
-
-                var filmModel = new FilmModel
-                {
-                    Poster = film.Poster.Thumb
-                };
-
-                response.Add(filmModel);
-            }
-
             return response;
         }
     }
