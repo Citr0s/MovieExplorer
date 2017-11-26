@@ -23,7 +23,7 @@ namespace MovieExplorer.Data.Film
 
             try
             {
-                var findByTitleResponse = await _httpClient.GetAsync($"{API_URI}?title={title}&year=2007").ConfigureAwait(false);
+                var findByTitleResponse = await _httpClient.GetAsync($"{API_URI}?title={title}").ConfigureAwait(false);
                 var content = await findByTitleResponse.Content.ReadAsStringAsync();
                 response.FilmData =  await Task.Run(() => JsonConvert.DeserializeObject<List<FilmData>>(content));
             }
