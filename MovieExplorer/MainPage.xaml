@@ -10,21 +10,16 @@
     <Page.Resources>
         <DataTemplate x:Key="FilmTemplate"
                       x:DataType="viewModels:FilmModel">
-            <Border Background="LightGray"
-                    Height="255"
-                    Width="173.5"
-                    Margin="5">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.Column="0"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="175" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"
                            Name="Poster"
                            HorizontalAlignment="Center"
                            Source="{x:Bind Poster}"
                            Stretch="Fill" />
-                </Grid>
-            </Border>
+            </Grid>
         </DataTemplate>
     </Page.Resources>
 
