@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\Film\FilmMapper.cs" />
+    <Compile Include="Services\Film\FindDetaulsResponse.cs" />
     <Compile Include="ViewModels\FilmModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

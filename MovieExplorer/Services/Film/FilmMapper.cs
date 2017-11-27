@@ -25,5 +25,13 @@ namespace MovieExplorer.Services.Film
 
             return response;
         }
+
+        public static FilmModel MapDetails(FilmDetail filmDetails)
+        {
+            return new FilmModel
+            {
+                Poster = filmDetails.Poster
+            };
+        }
     }
 }

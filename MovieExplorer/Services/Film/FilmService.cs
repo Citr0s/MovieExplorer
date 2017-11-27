@@ -29,5 +29,24 @@ namespace MovieExplorer.Services.Film
             response.Films = FilmMapper.Map(filmLookupResult.FilmData);
             return response;
         }
+
+        public FindDetaulsResponse FindDetails(string imdbIdentifier)
+        {
+            var response = new FindDetaulsResponse();
+
+            var filmLookup = _filmRepository.FindDetails(imdbIdentifier);
+            filmLookup.Wait();
+
+            var filmLookupResult = filmLookup.Result;
+
+            if (filmLookupResult.HasError)
+            {
+                response.AddError(filmLookupResult.Error);
+                return response;
+            }
+
+            response.FilmDetails = FilmMapper.MapDetails(filmLookupResult.FilmDetails);
+            return response;
+        }
     }
 }

@@ -12,7 +12,7 @@
                       x:DataType="viewModels:FilmModel">
             <Border Background="LightGray"
                     Height="255"
-                    Width="173"
+                    Width="173.5"
                     Margin="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -20,6 +20,7 @@
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0"
                            Name="Poster"
+                           HorizontalAlignment="Center"
                            Source="{x:Bind Poster}"
                            Stretch="Fill" />
                 </Grid>
