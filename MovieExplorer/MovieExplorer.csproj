@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FilmDetails.xaml.cs">
+      <DependentUpon>FilmDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\Film\FilmMapper.cs" />
     <Compile Include="Services\Film\FindDetaulsResponse.cs" />
     <Compile Include="ViewModels\FilmModel.cs" />
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="FilmDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

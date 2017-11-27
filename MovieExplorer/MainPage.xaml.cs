@@ -27,28 +27,15 @@ namespace MovieExplorer
 
         private void Submit_OnClick(object sender, RoutedEventArgs e)
         {
-            ToggleProgressRing(true);
+            ProgressRing.Visibility = Visibility.Visible;
             var findFilmByTitleResponse = _filmService.FindByTitle(Query.Text);
-            ToggleProgressRing(false);
             FilmResults.ItemsSource = findFilmByTitleResponse.Films;
+            ProgressRing.Visibility = Visibility.Collapsed;
         }
 
         private void FilmLayout_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            throw new System.NotImplementedException();
-        }
-
-        private void ToggleProgressRing(bool visible)
-        {
-            if (visible)
-            {
-                ProgressRing.Visibility = Visibility.Visible;
-                FilmResults.ItemsSource = new List<FilmModel>();
-            }
-            else
-            {
-                ProgressRing.Visibility = Visibility.Collapsed;
-            }
+            Frame.Navigate(typeof(FilmDetails));
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
