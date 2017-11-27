@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieExplorer", "MovieExplorer\MovieExplorer.csproj", "{D494E0DC-E158-4A37-AA01-E3440B6B2A27}"
 EndProject
@@ -22,6 +22,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D494E0DC-E158-4A37-AA01-E3440B6B2A27}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D494E0DC-E158-4A37-AA01-E3440B6B2A27}.Debug|Any CPU.Build.0 = Debug|x86
+		{D494E0DC-E158-4A37-AA01-E3440B6B2A27}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{D494E0DC-E158-4A37-AA01-E3440B6B2A27}.Debug|ARM.ActiveCfg = Debug|ARM
 		{D494E0DC-E158-4A37-AA01-E3440B6B2A27}.Debug|ARM.Build.0 = Debug|ARM
 		{D494E0DC-E158-4A37-AA01-E3440B6B2A27}.Debug|ARM.Deploy.0 = Debug|ARM

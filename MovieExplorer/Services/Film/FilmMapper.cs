@@ -6,18 +6,18 @@ namespace MovieExplorer.Services.Film
 {
     public class FilmMapper
     {
-        public static List<FilmModel> Map(List<FilmData> filmData)
+        public static List<FilmModel> Map(FilmData filmData)
         {
             var response = new List<FilmModel>();
 
-            foreach (var film in filmData)
+            foreach (var film in filmData.Search)
             {
-                if (string.IsNullOrEmpty(film.Poster.Thumb))
+                if (film.Poster.ToUpper().Equals("N/A"))
                     continue;
 
                 var filmModel = new FilmModel
                 {
-                    Poster = film.Poster.Thumb
+                    Poster = film.Poster
                 };
 
                 response.Add(filmModel);

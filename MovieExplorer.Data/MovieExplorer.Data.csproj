@@ -107,6 +107,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Film\FilmData.cs" />
+    <Compile Include="Film\FilmDetail.cs" />
+    <Compile Include="Film\FilmDetailsResponse.cs" />
     <Compile Include="Film\FilmRepository.cs" />
     <Compile Include="Film\FilmResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
