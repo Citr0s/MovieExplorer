@@ -23,37 +23,63 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid>
-        <Grid>
-            <Grid Margin="15" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="100"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" VerticalAlignment="Top">
-                    <TextBox Name="Query" Height="20" PlaceholderText="Search for a film..."></TextBox>
+    <SplitView Name="SplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+               CompactPaneLength="50" OpenPaneLength="150">
+        <SplitView.Pane>
+            <StackPanel Background="Gray">
+                <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                        Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
+                            Width="50" Height="50" Background="Transparent"/>
+                    <TextBlock Text="Button 1" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
+                            Width="50" Height="50" Background="Transparent"/>
+                    <TextBlock Text="Button 2" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;"
+                            Width="50" Height="50" Background="Transparent"/>
+                    <TextBlock Text="Button 3" FontSize="18" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid>
+                <Grid>
+                    <Grid Margin="15" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Top">
+                            <TextBox Name="Query" Height="20" PlaceholderText="Search for a film..."></TextBox>
+                        </Grid>
+                        <Grid Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Button Name="Submit" Click="Submit_OnClick">Submit</Button>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="15 75" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Top">
+                            <ProgressRing Name="ProgressRing" Width="50" Height="50" />
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Button Name="Submit" Click="Submit_OnClick">Submit</Button>
+                <Grid>
+                    <Grid Margin="15 75 15 15" VerticalAlignment="Top">
+                        <GridView x:Name="FilmResults"
+                                  HorizontalAlignment="Center"
+                                  ItemClick="FilmLayout_OnItemClick"
+                                  IsItemClickEnabled="True"
+                                  ItemTemplate="{StaticResource FilmTemplate}"/>
+                    </Grid>
                 </Grid>
             </Grid>
-            <Grid Margin="15 75" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" VerticalAlignment="Top">
-                    <ProgressRing Name="ProgressRing" Width="50" Height="50" />
-                </Grid>
-            </Grid>
-        </Grid>
-        <Grid>
-            <Grid Margin="15 75 15 15" VerticalAlignment="Top">
-                <GridView x:Name="FilmResults"
-                      HorizontalAlignment="Center"
-                      ItemClick="FilmLayout_OnItemClick"
-                      IsItemClickEnabled="True"
-                      ItemTemplate="{StaticResource FilmTemplate}"/>
-            </Grid>
-        </Grid>
-    </Grid>
+        </SplitView.Content>
+    </SplitView>
 </Page>

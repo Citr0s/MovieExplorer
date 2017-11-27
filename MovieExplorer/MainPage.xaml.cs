@@ -50,5 +50,10 @@ namespace MovieExplorer
                 ProgressRing.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+        }
     }
 }
