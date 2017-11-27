@@ -1,4 +1,5 @@
-﻿using MovieExplorer.Data.Film;
+﻿using System.Threading.Tasks;
+using MovieExplorer.Data.Film;
 
 namespace MovieExplorer.Services.Film
 {
@@ -11,22 +12,18 @@ namespace MovieExplorer.Services.Film
             _filmRepository = filmRepository;
         }
 
-        public FindByTitleResponse FindByTitle(string title)
+        public async Task<FindByTitleResponse> FindByTitle(string title)
         {
             var response = new FindByTitleResponse();
+            var filmLookup = await _filmRepository.FindByTitle(title);
 
-            var filmLookup = _filmRepository.FindByTitle(title);
-            filmLookup.Wait();
-
-            var filmLookupResult = filmLookup.Result;
-
-            if (filmLookupResult.HasError)
+            if (filmLookup.HasError)
             {
-                response.AddError(filmLookupResult.Error);
+                response.AddError(filmLookup.Error);
                 return response;
             }
 
-            response.Films = FilmMapper.Map(filmLookupResult.FilmData);
+            response.Films = FilmMapper.Map(filmLookup.FilmData);
             return response;
         }
 

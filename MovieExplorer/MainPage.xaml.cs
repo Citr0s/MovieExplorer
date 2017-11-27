@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using MovieExplorer.Data.Film;
@@ -25,10 +25,10 @@ namespace MovieExplorer
             ProgressRing.Visibility = Visibility.Collapsed;
         }
 
-        private void Submit_OnClick(object sender, RoutedEventArgs e)
+        private async void Submit_OnClick(object sender, RoutedEventArgs e)
         {
             ProgressRing.Visibility = Visibility.Visible;
-            var findFilmByTitleResponse = _filmService.FindByTitle(Query.Text);
+            var findFilmByTitleResponse = await _filmService.FindByTitle(Query.Text);
             FilmResults.ItemsSource = findFilmByTitleResponse.Films;
             ProgressRing.Visibility = Visibility.Collapsed;
         }
