@@ -20,17 +20,20 @@ namespace MovieExplorer
             _filmService = new FilmService(new FilmRepository(new HttpClient()));
 
             FilmModel = new FilmModel();
-
-            ProgressRing.IsActive = true;
-            ProgressRing.Visibility = Visibility.Collapsed;
         }
 
         private async void Submit_OnClick(object sender, RoutedEventArgs e)
         {
-            ProgressRing.Visibility = Visibility.Visible;
+            ToggleProgressRing();
             var findFilmByTitleResponse = await _filmService.FindByTitle(Query.Text);
             FilmResults.ItemsSource = findFilmByTitleResponse.Films;
-            ProgressRing.Visibility = Visibility.Collapsed;
+            ToggleProgressRing();
+        }
+
+        private void ToggleProgressRing()
+        {
+            ProgressRing.IsActive = !ProgressRing.IsActive;
+            ProgressRing.Visibility = ProgressRing.IsActive ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void FilmLayout_OnItemClick(object sender, ItemClickEventArgs e)
