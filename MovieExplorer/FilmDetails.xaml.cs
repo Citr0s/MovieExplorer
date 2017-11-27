@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
@@ -32,9 +33,12 @@ namespace MovieExplorer
             var filmDetailsResponse = await _filmService.FindDetails(film.Identifier);
             var filmDetails = filmDetailsResponse.FilmDetails;
 
+            PosterBackground.Source = new BitmapImage(new Uri(filmDetails.Poster));
+            await PosterBackground.Blur(duration: 10, delay: 0, value: 3).StartAsync();
+
             Poster.Source = new BitmapImage(new Uri(filmDetails.Poster));
             Title.Text = filmDetails.Title;
-            await Poster.Blur(duration: 10, delay: 0, value: 3).StartAsync();
+            Rating.Text = filmDetails.Ratings;
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MovieExplorer.Data.Film;
 using MovieExplorer.ViewModels;
 
@@ -29,12 +30,17 @@ namespace MovieExplorer.Services.Film
 
         public static FilmModel MapDetails(FilmDetail filmDetails)
         {
-            return new FilmModel
+            var response = new FilmModel
             {
                 Identifier = filmDetails.ImdbId,
                 Title = filmDetails.Title,
                 Poster = filmDetails.Poster
             };
+
+            foreach (var rating in filmDetails.Ratings)
+                response.Ratings += $"{rating.Source}: {rating.Value} ";
+
+            return response;
         }
     }
 }
