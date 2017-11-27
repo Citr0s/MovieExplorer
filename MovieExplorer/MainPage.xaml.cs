@@ -1,7 +1,10 @@
 ﻿using System.Net.Http;
+using System.Numerics;
 using System.Threading.Tasks;
+using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Hosting;
 using MovieExplorer.Data.Film;
 using MovieExplorer.Services.Film;
 using MovieExplorer.ViewModels;

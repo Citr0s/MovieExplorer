@@ -27,22 +27,18 @@ namespace MovieExplorer.Services.Film
             return response;
         }
 
-        public FindDetaulsResponse FindDetails(string imdbIdentifier)
+        public async Task<FindDetaulsResponse> FindDetails(string imdbIdentifier)
         {
             var response = new FindDetaulsResponse();
+            var filmLookup = await _filmRepository.FindDetails(imdbIdentifier);
 
-            var filmLookup = _filmRepository.FindDetails(imdbIdentifier);
-            filmLookup.Wait();
-
-            var filmLookupResult = filmLookup.Result;
-
-            if (filmLookupResult.HasError)
+            if (filmLookup.HasError)
             {
-                response.AddError(filmLookupResult.Error);
+                response.AddError(filmLookup.Error);
                 return response;
             }
 
-            response.FilmDetails = FilmMapper.MapDetails(filmLookupResult.FilmDetails);
+            response.FilmDetails = FilmMapper.MapDetails(filmLookup.FilmDetails);
             return response;
         }
     }

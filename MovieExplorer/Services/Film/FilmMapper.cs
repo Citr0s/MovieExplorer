@@ -17,7 +17,7 @@ namespace MovieExplorer.Services.Film
 
                 var filmModel = new FilmModel
                 {
-                    ImdbIdentifier = film.ImdbId,
+                    Identifier = film.ImdbId,
                     Poster = film.Poster
                 };
 
@@ -31,6 +31,8 @@ namespace MovieExplorer.Services.Film
         {
             return new FilmModel
             {
+                Identifier = filmDetails.ImdbId,
+                Title = filmDetails.Title,
                 Poster = filmDetails.Poster
             };
         }

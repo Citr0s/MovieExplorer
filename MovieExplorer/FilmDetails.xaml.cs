@@ -1,6 +1,9 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using MovieExplorer.Data.Film;
 using MovieExplorer.Services.Film;
 using MovieExplorer.ViewModels;
@@ -24,9 +27,14 @@ namespace MovieExplorer
             LoadFilmDetails((FilmModel)e.Parameter);
         }
 
-        private void LoadFilmDetails(FilmModel film)
+        private async void LoadFilmDetails(FilmModel film)
         {
-            _filmService.FindDetails(film.ImdbIdentifier);
+            var filmDetailsResponse = await _filmService.FindDetails(film.Identifier);
+            var filmDetails = filmDetailsResponse.FilmDetails;
+
+            Poster.Source = new BitmapImage(new Uri(filmDetails.Poster));
+            Title.Text = filmDetails.Title;
+            await Poster.Blur(duration: 10, delay: 0, value: 3).StartAsync();
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)

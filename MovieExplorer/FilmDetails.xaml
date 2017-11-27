@@ -5,24 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:MovieExplorer.ViewModels"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
     mc:Ignorable="d">
-
-    <Page.Resources>
-        <DataTemplate x:Key="FilmDetailsTemplate"
-                      x:DataType="viewModels:FilmModel">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="175" />
-                </Grid.ColumnDefinitions>
-                <Image Grid.Column="0"
-                       Name="Poster"
-                       HorizontalAlignment="Center"
-                       Source="{x:Bind Poster}"
-                       Stretch="Fill" />
-            </Grid>
-        </DataTemplate>
-    </Page.Resources>
     
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="30px" />
+        </Style>
+    </Page.Resources>
+
     <SplitView Name="SplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
                CompactPaneLength="50" OpenPaneLength="150">
         <SplitView.Pane>
@@ -34,25 +27,31 @@
                             Width="50" Height="50" Background="Transparent" Click="HomeButton_Click"/>
                     <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center" />
                 </StackPanel>
-                <!--<StackPanel Orientation="Horizontal">
-                    <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
-                            Width="50" Height="50" Background="Transparent"/>
-                    <TextBlock Text="Button 1" FontSize="18" VerticalAlignment="Center" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;"
-                            Width="50" Height="50" Background="Transparent"/>
-                    <TextBlock Text="Button 3" FontSize="18" VerticalAlignment="Center" />
-                </StackPanel>-->
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
             <Grid>
                 <Grid>
-                    <Grid Margin="15" VerticalAlignment="Top">
-                        <GridView x:Name="FilmResults"
-                                  HorizontalAlignment="Center"
-                                  ItemTemplate="{StaticResource FilmDetailsTemplate}"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid VerticalAlignment="Top">
+                        <Image Grid.Row="0"
+                               Name="Poster"
+                               HorizontalAlignment="Center"
+                               Stretch="UniformToFill">
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:Blur x:Name="Blur" />
+                            </interactivity:Interaction.Behaviors>
+                        </Image>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Name="Title" Margin="15 230 15 15"></TextBlock>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
