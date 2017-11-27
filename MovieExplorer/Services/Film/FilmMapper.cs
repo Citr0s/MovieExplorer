@@ -17,6 +17,7 @@ namespace MovieExplorer.Services.Film
 
                 var filmModel = new FilmModel
                 {
+                    ImdbIdentifier = film.ImdbId,
                     Poster = film.Poster
                 };
 

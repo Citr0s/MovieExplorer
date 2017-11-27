@@ -38,7 +38,7 @@ namespace MovieExplorer
 
         private void FilmLayout_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            Frame.Navigate(typeof(FilmDetails));
+            Frame.Navigate(typeof(FilmDetails), (FilmModel)e.ClickedItem);
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
