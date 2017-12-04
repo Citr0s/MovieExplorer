@@ -33,6 +33,8 @@ namespace MovieExplorer
             var filmDetails = filmDetailsResponse.FilmDetails;
 
             PosterBackground.Source = new BitmapImage(new Uri(filmDetails.Poster));
+            await PosterBackground.Blur(duration: 10, delay: 0, value: 3).StartAsync();
+
             Poster.Source = new BitmapImage(new Uri(filmDetails.Poster));
             Title.Text = filmDetails.Title;
             Rating.Text = filmDetails.Ratings;
