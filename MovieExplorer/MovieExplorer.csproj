@@ -98,6 +98,10 @@
     <Compile Include="FilmDetails.xaml.cs">
       <DependentUpon>FilmDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ParentFrameHelper.cs" />
     <Compile Include="Services\Film\FilmMapper.cs" />
     <Compile Include="Services\Film\FindDetaulsResponse.cs" />
     <Compile Include="ViewModels\FilmModel.cs" />
@@ -130,6 +134,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="FilmDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

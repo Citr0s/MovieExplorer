@@ -4,9 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="using:MovieExplorer.ViewModels"
-    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -15,52 +12,39 @@
             <Setter Property="FontSize" Value="30px" />
         </Style>
     </Page.Resources>
-
-    <SplitView Name="SplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
-               CompactPaneLength="50" OpenPaneLength="150">
-        <SplitView.Pane>
-            <StackPanel Background="LightGray">
-                <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
-                        Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
-                <StackPanel Orientation="Horizontal">
-                    <Button x:Name="HomeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
-                            Width="50" Height="50" Background="Transparent" Click="HomeButton_Click"/>
-                    <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center" Foreground="Black" />
-                </StackPanel>
-            </StackPanel>
-        </SplitView.Pane>
-        <SplitView.Content>
-            <Grid>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="300"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid VerticalAlignment="Top">
-                        <Image Grid.Row="0"
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid VerticalAlignment="Top">
+                <Image Grid.Row="0"
                                Name="PosterBackground"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Stretch="UniformToFill">
-                        </Image>
-                        <Border Grid.Row="0" Background="Black" Opacity="0.6" />
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="200"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Name="Title" Margin="15 230 15 15"></TextBlock>
-                            <TextBlock Grid.Column="0" Name="Rating" Margin="15 265 15 15" FontSize="15px"></TextBlock>
-                            <Image Grid.Column="1"
+                </Image>
+                <Border Grid.Row="0" Background="Black" Opacity="0.6" />
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="15">
+                        <TextBlock Name="Title" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Name="Rating" FontSize="15px"></TextBlock>
+                        <TextBlock Name="Genre" FontSize="15px"></TextBlock>
+                        <TextBlock Name="Released" FontSize="15px"></TextBlock>
+                    </StackPanel>
+                    <Image Grid.Column="1"
                                    Name="Poster"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
                                    Margin="15"
                                    Stretch="UniformToFill" />
-                        </Grid>
-                    </Grid>
                 </Grid>
             </Grid>
-        </SplitView.Content>
-    </SplitView>
+        </Grid>
+    </Grid>
 </Page>

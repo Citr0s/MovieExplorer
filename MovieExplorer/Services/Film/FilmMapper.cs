@@ -34,12 +34,17 @@ namespace MovieExplorer.Services.Film
             {
                 Identifier = filmDetails.ImdbId,
                 Title = filmDetails.Title,
-                Poster = filmDetails.Poster
+                Poster = filmDetails.Poster,
+                Genre = filmDetails.Genre,
+                Released = filmDetails.Released,
+
             };
 
-            foreach (var rating in filmDetails.Ratings)
-                response.Ratings += $"{rating.Source}: {rating.Value} ";
+            if (filmDetails.Ratings.Count == 0)
+                return response;
 
+            var rating = filmDetails.Ratings.First();
+            response.Ratings = $"{rating.Source}: {rating.Value} ";
             return response;
         }
     }

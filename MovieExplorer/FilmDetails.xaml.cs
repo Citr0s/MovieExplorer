@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Net.Http;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.Toolkit.Uwp.UI.Animations;
 using MovieExplorer.Data.Film;
 using MovieExplorer.Services.Film;
 using MovieExplorer.ViewModels;
@@ -36,16 +34,8 @@ namespace MovieExplorer
             Poster.Source = new BitmapImage(new Uri(filmDetails.Poster));
             Title.Text = filmDetails.Title;
             Rating.Text = filmDetails.Ratings;
-        }
-
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
-        }
-
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
+            Genre.Text = filmDetails.Genre;
+            Released.Text = filmDetails.Released;
         }
     }
 }
