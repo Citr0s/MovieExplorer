@@ -14,18 +14,19 @@
     </Page.Resources>
     <Grid>
         <Grid>
+            <!-- Move to binding -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid VerticalAlignment="Top">
+            <Grid VerticalAlignment="Top" Grid.Row="0">
                 <Image Grid.Row="0"
                                Name="PosterBackground"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Stretch="UniformToFill">
                 </Image>
-                <Border Grid.Row="0" Background="Black" Opacity="0.6" />
+                <Border  Background="Black" Opacity="0.8" />
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -44,6 +45,15 @@
                                    Margin="15"
                                    Stretch="UniformToFill" />
                 </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Margin="15">
+                    <TextBlock TextWrapping="Wrap" Foreground="Black">Trailer</TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="15px" Name="NoTrailer" Visibility="Collapsed"  Foreground="Black">Sorry, we could not find a trailer for this film.</TextBlock>
+                    <ProgressRing Name="TrailerSearchRing" Width="50" Height="50" Margin="15" />
+                    <MediaElement Name="Trailer"  AreTransportControlsEnabled="True" Visibility="Collapsed" AutoPlay="False"/>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

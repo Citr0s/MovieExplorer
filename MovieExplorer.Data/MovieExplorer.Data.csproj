@@ -111,6 +111,9 @@
     <Compile Include="Film\FilmDetailsResponse.cs" />
     <Compile Include="Film\FilmRepository.cs" />
     <Compile Include="Film\FilmResponse.cs" />
+    <Compile Include="Trailer\FilmTrailerData.cs" />
+    <Compile Include="Trailer\FilmTrailerResponse.cs" />
+    <Compile Include="Trailer\TrailerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\MovieExplorer.Data.rd.xml" />
   </ItemGroup>

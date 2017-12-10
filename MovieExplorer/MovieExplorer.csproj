@@ -104,6 +104,8 @@
     <Compile Include="Helpers\ParentFrameHelper.cs" />
     <Compile Include="Services\Film\FilmMapper.cs" />
     <Compile Include="Services\Film\FindDetaulsResponse.cs" />
+    <Compile Include="Services\Trailer\TrailerResponse.cs" />
+    <Compile Include="Services\Trailer\TrailerService.cs" />
     <Compile Include="ViewModels\FilmModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
