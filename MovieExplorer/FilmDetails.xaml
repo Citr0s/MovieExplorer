@@ -14,7 +14,6 @@
     </Page.Resources>
     <Grid>
         <Grid>
-            <!-- Move to binding -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -48,8 +47,10 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Margin="15">
+                    <TextBlock TextWrapping="Wrap" Foreground="Black">Plot</TextBlock>
+                    <TextBlock Name="Plot" FontSize="15px" Foreground="Black" TextWrapping="Wrap"></TextBlock>
+                    
                     <TextBlock TextWrapping="Wrap" Foreground="Black">Trailer</TextBlock>
-
                     <TextBlock TextWrapping="Wrap" FontSize="15px" Name="NoTrailer" Visibility="Collapsed"  Foreground="Black">Sorry, we could not find a trailer for this film.</TextBlock>
                     <ProgressRing Name="TrailerSearchRing" Width="50" Height="50" Margin="15" />
                     <MediaElement Name="Trailer"  AreTransportControlsEnabled="True" Visibility="Collapsed" AutoPlay="False"/>

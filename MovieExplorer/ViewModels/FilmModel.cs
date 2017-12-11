@@ -9,5 +9,6 @@ namespace MovieExplorer.ViewModels
         public string Genre { get; set; }
         public string Released { get; set; }
         public string Year { get; set; }
+        public string Plot { get; set; }
     }
 }

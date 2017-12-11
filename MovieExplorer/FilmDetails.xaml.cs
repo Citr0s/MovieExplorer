@@ -43,6 +43,7 @@ namespace MovieExplorer
             Rating.Text = filmDetails.Ratings;
             Genre.Text = filmDetails.Genre;
             Released.Text = filmDetails.Released;
+            Plot.Text = filmDetails.Plot;
 
             ToggleProgressRing();
 

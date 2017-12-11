@@ -37,7 +37,8 @@ namespace MovieExplorer.Services.Film
                 Poster = filmDetails.Poster,
                 Genre = filmDetails.Genre,
                 Released = filmDetails.Released,
-                Year = filmDetails.Year
+                Year = filmDetails.Year,
+                Plot = filmDetails.Plot
             };
 
             if (filmDetails.Ratings.Count == 0)
