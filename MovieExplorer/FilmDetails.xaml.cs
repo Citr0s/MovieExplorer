@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Windows.Media.SpeechSynthesis;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -66,6 +67,15 @@ namespace MovieExplorer
         {
             TrailerSearchRing.IsActive = !TrailerSearchRing.IsActive;
             TrailerSearchRing.Visibility = TrailerSearchRing.IsActive ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private async void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var speechSynthesis = new SpeechSynthesizer();
+            var speechStrem = await speechSynthesis.SynthesizeTextToStreamAsync(Plot.Text);
+
+            Speech.SetSource(speechStrem, speechStrem.ContentType);
+            Speech.Play();
         }
     }
 }

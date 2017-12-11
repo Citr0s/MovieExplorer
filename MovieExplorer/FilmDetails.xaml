@@ -49,7 +49,9 @@
                 <StackPanel Margin="15">
                     <TextBlock TextWrapping="Wrap" Foreground="Black">Plot</TextBlock>
                     <TextBlock Name="Plot" FontSize="15px" Foreground="Black" TextWrapping="Wrap"></TextBlock>
-                    
+                    <MediaElement Name="Speech" Visibility="Collapsed"/>
+                    <Button Margin="0 0 0 15" Click="ButtonBase_OnClick">Read</Button>
+
                     <TextBlock TextWrapping="Wrap" Foreground="Black">Trailer</TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="15px" Name="NoTrailer" Visibility="Collapsed"  Foreground="Black">Sorry, we could not find a trailer for this film.</TextBlock>
                     <ProgressRing Name="TrailerSearchRing" Width="50" Height="50" Margin="15" />
