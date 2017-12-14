@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Windows.Media.SpeechSynthesis;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using MovieExplorer.Data.Film;
