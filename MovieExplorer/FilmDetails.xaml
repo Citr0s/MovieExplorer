@@ -11,7 +11,11 @@
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="30px" />
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
     </Page.Resources>
+    
     <Grid>
         <ScrollViewer>
             <Grid>
@@ -48,13 +52,13 @@
                 </Grid>
                 <Grid Grid.Row="1">
                     <StackPanel Margin="15">
-                        <TextBlock TextWrapping="Wrap" Foreground="Black">Plot</TextBlock>
-                        <TextBlock Name="Plot" FontSize="15px" Foreground="Black" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock TextWrapping="Wrap">Plot</TextBlock>
+                        <TextBlock Name="Plot" FontSize="15px" TextWrapping="Wrap"></TextBlock>
                         <MediaElement Name="Speech" Visibility="Collapsed"/>
-                        <Button Margin="0 0 0 15" Click="ButtonBase_OnClick">Read</Button>
+                        <Button Margin="0 15" Click="ButtonBase_OnClick">Click to Read the Plot</Button>
 
-                        <TextBlock TextWrapping="Wrap" Foreground="Black">Trailer</TextBlock>
-                        <TextBlock TextWrapping="Wrap" FontSize="15px" Name="NoTrailer" Visibility="Collapsed"  Foreground="Black">Sorry, we could not find a trailer for this film.</TextBlock>
+                        <TextBlock TextWrapping="Wrap">Trailer</TextBlock>
+                        <TextBlock TextWrapping="Wrap" FontSize="15px" Name="NoTrailer" Visibility="Collapsed">Sorry, we could not find a trailer for this film.</TextBlock>
                         <ProgressRing Name="TrailerSearchRing" Width="50" Height="50" Margin="15" />
                         <MediaElement Name="Trailer"  AreTransportControlsEnabled="True" Visibility="Collapsed" AutoPlay="False"/>
                     </StackPanel>

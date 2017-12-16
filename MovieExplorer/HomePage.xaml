@@ -24,7 +24,8 @@
     </Page.Resources>
 
     <Grid>
-        <Grid>
+        <TextBlock Text="Home" FontSize="30" Margin="15" Foreground="White"></TextBlock>
+        <Grid Margin="0 45 0 0">
             <Grid Margin="15" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -34,7 +35,7 @@
                     <TextBox Name="Query" Height="20" PlaceholderText="Search for a film..."></TextBox>
                 </Grid>
                 <Grid Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
-                    <Button Name="Submit" Click="Submit_OnClick">Submit</Button>
+                    <Button Name="Submit" Click="Submit_OnClick" Foreground="White">Submit</Button>
                 </Grid>
             </Grid>
             <Grid Margin="15 75" VerticalAlignment="Top">
@@ -46,14 +47,14 @@
                 </Grid>
             </Grid>
         </Grid>
-            <Grid>
-                <Grid Margin="15 75 15 15" VerticalAlignment="Top">
-                    <GridView x:Name="FilmResults"
-                          HorizontalAlignment="Center"
-                          ItemClick="FilmLayout_OnItemClick"
-                          IsItemClickEnabled="True"
-                          ItemTemplate="{StaticResource FilmTemplate}"/>
-                </Grid>
+        <Grid Margin="0 45 0 0">
+            <Grid Margin="15 75 15 15" VerticalAlignment="Top">
+                <GridView x:Name="FilmResults"
+                        HorizontalAlignment="Center"
+                        ItemClick="FilmLayout_OnItemClick"
+                        IsItemClickEnabled="True"
+                        ItemTemplate="{StaticResource FilmTemplate}"/>
             </Grid>
+        </Grid>
     </Grid>
 </Page>

@@ -111,6 +111,10 @@
     <Compile Include="Film\FilmDetailsResponse.cs" />
     <Compile Include="Film\FilmRepository.cs" />
     <Compile Include="Film\FilmResponse.cs" />
+    <Compile Include="Quiz\PossibleAnswer.cs" />
+    <Compile Include="Quiz\QuizItem.cs" />
+    <Compile Include="Quiz\QuizItemResponse.cs" />
+    <Compile Include="Quiz\QuizRepository.cs" />
     <Compile Include="Trailer\FilmTrailerData.cs" />
     <Compile Include="Trailer\FilmTrailerResponse.cs" />
     <Compile Include="Trailer\TrailerRepository.cs" />

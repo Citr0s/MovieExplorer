@@ -9,20 +9,20 @@
     <SplitView Name="SplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
                CompactPaneLength="50" OpenPaneLength="150">
         <SplitView.Pane>
-            <StackPanel Background="LightGray">
+            <StackPanel Background="#232323">
                 <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
-                        Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
+                        Width="50" Height="50" Background="Transparent" Foreground="White" Click="HamburgerButton_Click"/>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="HomeButton" FontFamily="Segoe MDL2 Assets" Content="&#xE10F;"
-                            Width="50" Height="50" Background="Transparent" Click="HomeButton_Click"/>
-                    <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center" />
-                </StackPanel>
-                <!--<StackPanel Orientation="Horizontal">
-                    <Button x:Name="MenuButton1" FontFamily="Segoe MDL2 Assets" Content="&#xE825;"
-                            Width="50" Height="50" Background="Transparent"/>
-                    <TextBlock Text="Button 1" FontSize="18" VerticalAlignment="Center" />
+                            Width="50" Height="50" Background="Transparent" Foreground="White" Click="HomeButton_Click"></Button>
+                    <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center" Foreground="White" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
+                    <Button x:Name="QuizButton" FontFamily="Segoe MDL2 Assets" Content="&#xE7BE;"
+                            Width="50" Height="50" Background="Transparent" Foreground="White" Click="QuizButton_Click"/>
+                    <TextBlock Text="Quiz" FontSize="18" VerticalAlignment="Center" Foreground="White" />
+                </StackPanel>
+                <!--<StackPanel Orientation="Horizontal">
                     <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;"
                             Width="50" Height="50" Background="Transparent"/>
                     <TextBlock Text="Button 3" FontSize="18" VerticalAlignment="Center" />
@@ -30,7 +30,7 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-            <Frame Name="MainFrame"></Frame>
+            <Frame Name="MainFrame" Background="#111111"></Frame>
         </SplitView.Content>
     </SplitView>
 </Page>

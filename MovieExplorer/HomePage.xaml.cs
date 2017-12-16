@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using MovieExplorer.Data.Film;
 using MovieExplorer.Helpers;
 using MovieExplorer.Services.Film;

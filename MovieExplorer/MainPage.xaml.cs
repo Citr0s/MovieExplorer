@@ -10,14 +10,26 @@ namespace MovieExplorer
             MainFrame.Navigate(typeof(HomePage));
         }
 
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        private void ToggleSplitViewPane()
         {
-            MainFrame.Navigate(typeof(HomePage));
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
-            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+            ToggleSplitViewPane();
+        }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleSplitViewPane();
+            MainFrame.Navigate(typeof(HomePage));
+        }
+
+        private void QuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleSplitViewPane();
+            MainFrame.Navigate(typeof(QuizPage));
         }
     }
 }
