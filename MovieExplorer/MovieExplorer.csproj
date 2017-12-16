@@ -95,9 +95,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CinemaPage.xaml.cs">
+      <DependentUpon>CinemaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FilmDetails.xaml.cs">
       <DependentUpon>FilmDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\LocationHelper.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -105,6 +109,10 @@
     <Compile Include="QuizPage.xaml.cs">
       <DependentUpon>QuizPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\Cinema\CinemaInfo.cs" />
+    <Compile Include="Services\Cinema\CinemaMapper.cs" />
+    <Compile Include="Services\Cinema\CinemaService.cs" />
+    <Compile Include="Services\Cinema\GetNearbyCinemasResponse.cs" />
     <Compile Include="Services\Film\FilmMapper.cs" />
     <Compile Include="Services\Film\FindDetaulsResponse.cs" />
     <Compile Include="Services\Quiz\QuizService.cs" />
@@ -140,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CinemaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FilmDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
