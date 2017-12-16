@@ -24,29 +24,28 @@
     </Page.Resources>
 
     <Grid>
-        <ScrollViewer>
-            <Grid>
-                <Grid Margin="15" VerticalAlignment="Top">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="100"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0" VerticalAlignment="Top">
-                        <TextBox Name="Query" Height="20" PlaceholderText="Search for a film..."></TextBox>
-                    </Grid>
-                    <Grid Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <Button Name="Submit" Click="Submit_OnClick">Submit</Button>
-                    </Grid>
+        <Grid>
+            <Grid Margin="15" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" VerticalAlignment="Top">
+                    <TextBox Name="Query" Height="20" PlaceholderText="Search for a film..."></TextBox>
                 </Grid>
-                <Grid Margin="15 75" VerticalAlignment="Top">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0" VerticalAlignment="Top">
-                        <ProgressRing Name="ProgressRing" Width="50" Height="50" />
-                    </Grid>
+                <Grid Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+                    <Button Name="Submit" Click="Submit_OnClick">Submit</Button>
                 </Grid>
             </Grid>
+            <Grid Margin="15 75" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" VerticalAlignment="Top">
+                    <ProgressRing Name="ProgressRing" Width="50" Height="50" />
+                </Grid>
+            </Grid>
+        </Grid>
             <Grid>
                 <Grid Margin="15 75 15 15" VerticalAlignment="Top">
                     <GridView x:Name="FilmResults"
@@ -56,6 +55,5 @@
                           ItemTemplate="{StaticResource FilmTemplate}"/>
                 </Grid>
             </Grid>
-        </ScrollViewer>
     </Grid>
 </Page>
