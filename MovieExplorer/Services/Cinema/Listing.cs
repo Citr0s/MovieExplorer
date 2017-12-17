@@ -10,6 +10,7 @@ namespace MovieExplorer.Services.Cinema
         }
 
         public string Title { get; set; }
+        public string Thumbnail { get; set; }
         public List<string> Times { get; set; }
     }
 }

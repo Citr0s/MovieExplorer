@@ -32,10 +32,12 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition />
                                         <RowDefinition />
+                                        <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <TextBlock Grid.Row="0" Text="{x:Bind Title}" TextWrapping="Wrap" Margin="0 15 0 0"
                                                Foreground="White" />
-                                    <GridView Grid.Row="1" ItemsSource="{x:Bind Times}" SelectionMode="None"
+                                    <Image Grid.Row="1" Source="{x:Bind Thumbnail}" Margin="0 15" Width="200" HorizontalAlignment="Left"></Image>
+                                    <GridView Grid.Row="2" ItemsSource="{x:Bind Times}" SelectionMode="None"
                                               IsItemClickEnabled="False">
                                         <GridView.ItemTemplate>
                                             <DataTemplate x:DataType="system:String">
