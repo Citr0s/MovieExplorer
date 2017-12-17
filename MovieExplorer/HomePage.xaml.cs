@@ -24,7 +24,8 @@ namespace MovieExplorer
 
         private void FilmLayout_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            ParentFrameHelper.Navigate(this, typeof(FilmDetails), (FilmModel)e.ClickedItem);
+            var filmModel = (FilmModel)e.ClickedItem;
+            ParentFrameHelper.Navigate(this, typeof(FilmDetails), filmModel.Identifier);
         }
 
         private async void Submit_OnClick(object sender, RoutedEventArgs e)

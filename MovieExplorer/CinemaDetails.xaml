@@ -25,7 +25,7 @@
         <Grid Margin="0 100 0 0">
             <ScrollViewer>
                 <StackPanel>
-                    <ListView Name="CinemaListings" SelectionMode="None" IsItemClickEnabled="False">
+                    <ListView Name="CinemaListings" SelectionMode="None" IsItemClickEnabled="True" ItemClick="CinemaListings_OnItemClick">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="cinema:Listing">
                                 <Grid>
@@ -36,7 +36,7 @@
                                     </Grid.RowDefinitions>
                                     <TextBlock Grid.Row="0" Text="{x:Bind Title}" TextWrapping="Wrap" Margin="0 15 0 0"
                                                Foreground="White" />
-                                    <Image Grid.Row="1" Source="{x:Bind Thumbnail}" Margin="0 15" Width="200" HorizontalAlignment="Left"></Image>
+                                    <Image Grid.Row="1" Source="{x:Bind Thumbnail}" Margin="0 15" Width="200" HorizontalAlignment="Left"/>
                                     <GridView Grid.Row="2" ItemsSource="{x:Bind Times}" SelectionMode="None"
                                               IsItemClickEnabled="False">
                                         <GridView.ItemTemplate>

@@ -1,18 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net.Http;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using MovieExplorer.Data.Cinema;
 using MovieExplorer.Data.Film;
+using MovieExplorer.Helpers;
 using MovieExplorer.Services.Cinema;
 using MovieExplorer.Services.Film;
+using MovieExplorer.ViewModels;
 
 namespace MovieExplorer
 {
     public sealed partial class CinemaDetails
     {
         private readonly CinemaService _cinemaService;
-        private FilmService _filmService;
+        private readonly FilmService _filmService;
 
         public CinemaDetails()
         {
@@ -24,7 +26,7 @@ namespace MovieExplorer
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            LoadCinemaShowings((CinemaInfo)e.Parameter);
+            LoadCinemaShowings((CinemaInfo) e.Parameter);
         }
 
         private async void LoadCinemaShowings(CinemaInfo cinema)
@@ -36,10 +38,19 @@ namespace MovieExplorer
             foreach (var listing in cinemaShowingsResponse.Listings)
             {
                 var film = await _filmService.FindByTitle(listing.Title);
-                listing.Thumbnail = film.Films.FirstOrDefault()?.Poster;
+                var possibleFilm = film.Films.FirstOrDefault();
+
+                listing.Identifier = possibleFilm?.Identifier;
+                listing.Thumbnail = possibleFilm?.Poster;
             }
 
             CinemaListings.ItemsSource = cinemaShowingsResponse.Listings;
+        }
+
+        private void CinemaListings_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var listing = (Listing) e.ClickedItem;
+            ParentFrameHelper.Navigate(this, typeof(FilmDetails), listing.Identifier);
         }
     }
 }

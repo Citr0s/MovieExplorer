@@ -28,12 +28,12 @@ namespace MovieExplorer
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            LoadFilmDetails((FilmModel)e.Parameter);
+            LoadFilmDetails((string)e.Parameter);
         }
 
-        private async void LoadFilmDetails(FilmModel film)
+        private async void LoadFilmDetails(string identifier)
         {
-            var filmDetailsResponse = await _filmService.FindDetails(film.Identifier);
+            var filmDetailsResponse = await _filmService.FindDetails(identifier);
             var filmDetails = filmDetailsResponse.FilmDetails;
 
             PosterBackground.Source = new BitmapImage(new Uri(filmDetails.Poster));

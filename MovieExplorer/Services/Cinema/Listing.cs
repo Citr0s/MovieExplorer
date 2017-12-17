@@ -9,6 +9,7 @@ namespace MovieExplorer.Services.Cinema
             Times = new List<string>();
         }
 
+        public string Identifier { get; set; }
         public string Title { get; set; }
         public string Thumbnail { get; set; }
         public List<string> Times { get; set; }
