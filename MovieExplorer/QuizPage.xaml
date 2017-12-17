@@ -8,38 +8,48 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="Quiz" FontSize="30" Margin="15" Foreground="White" />
-        <Grid Margin="0 75 0 0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Quiz" FontSize="30" Margin="15" Foreground="White" />
+        </Grid>
+        <Grid Margin="0 50">
             <ScrollViewer>
-            <StackPanel>
-                <ListView Name="QuizItems" SelectionMode="None" IsItemClickEnabled="False">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="quiz:QuizItem">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" Text="{x:Bind Question}" TextWrapping="Wrap" Margin="0 15 0 0" Foreground="White"/>
-                                <ListView Grid.Row="1" ItemsSource="{x:Bind PossibleAnswers}" SelectionMode="None"
-                                          IsItemClickEnabled="False">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate x:DataType="quiz:PossibleAnswer">
-                                            <Grid>
-                                                <RadioButton Name="Answer" GroupName="{x:Bind Index}" Click="ButtonBase_OnClick">
-                                                    <TextBlock Text="{x:Bind Answer}" Foreground="White"/>
-                                                </RadioButton>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                </ListView>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <TextBlock Name="Feedback" Margin="15" Foreground="White"></TextBlock>
-                <Button Name="Submit" Click="SubmitButton_Click" Margin="15" Foreground="White">Submit</Button>
-            </StackPanel>
+                <StackPanel>
+                    <ListView Name="QuizItems" SelectionMode="None" IsItemClickEnabled="False">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="quiz:QuizItem">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{x:Bind Question}" TextWrapping="Wrap"
+                                               Margin="0 15 0 0" Foreground="White" />
+                                    <ListView Grid.Row="1" ItemsSource="{x:Bind PossibleAnswers}" SelectionMode="None"
+                                              IsItemClickEnabled="False">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate x:DataType="quiz:PossibleAnswer">
+                                                <Grid>
+                                                    <RadioButton Name="Answer" GroupName="{x:Bind Index}"
+                                                                 Click="ButtonBase_OnClick">
+                                                        <TextBlock Text="{x:Bind Answer}" Foreground="White" />
+                                                    </RadioButton>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <TextBlock Name="Feedback" Margin="15" Foreground="White" />
+                    <Button Name="Submit" Click="SubmitButton_Click" Margin="15" Foreground="White"
+                            Background="#232323">
+                        Submit
+                    </Button>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
     </Grid>

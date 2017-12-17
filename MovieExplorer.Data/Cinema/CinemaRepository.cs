@@ -25,6 +25,9 @@ namespace MovieExplorer.Data.Cinema
                 var findByTitleResponse = await _httpClient.GetAsync($"{API_URI}search/cinemas/coordinates/{latitude}/{longitude}").ConfigureAwait(false);
                 var content = await findByTitleResponse.Content.ReadAsStringAsync();
                 response.Cinemas = await Task.Run(() => JsonConvert.DeserializeObject<CinemaData>(content));
+
+                if (response.Cinemas.Cinemas == null)
+                    throw new Exception("No cinemas found!");
             }
             catch (Exception exception)
             {

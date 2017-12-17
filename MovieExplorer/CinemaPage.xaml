@@ -8,14 +8,16 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock Text="Quiz" FontSize="30" Margin="15" Foreground="White" />
-        <Grid Margin="0 75 0 0">
+        <TextBlock Text="Nearby Cinemas" FontSize="30" Margin="15" Foreground="White" />
+        <Grid Margin="0 65 0 0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Click="Load" Foreground="White" Margin="10 0">Click to Find Nearby Cinemas</Button>
-            <ScrollViewer Grid.Row="1" Margin="0 15">
+            <Button Grid.Row="0" Click="Load" Foreground="White" Margin="10 0" Background="#232323">Click to Find Nearby Cinemas</Button>
+            <TextBlock Grid.Row="1" Name="Feedback" Foreground="#c0392b" Margin="10" TextWrapping="Wrap" />
+            <ScrollViewer Grid.Row="2" Margin="0">
                 <StackPanel>
                     <ListView Name="NearbyCinemas" ItemClick="NearbyCinemas_OnItemClick" IsItemClickEnabled="True">
                         <ListView.ItemTemplate>
@@ -28,7 +30,7 @@
                                     <TextBlock Grid.Row="0" Text="{x:Bind Name}" TextWrapping="Wrap" Margin="0 15 0 0"
                                                Foreground="White" />
                                     <TextBlock Grid.Row="1" Text="{x:Bind DistanceDescription}" TextWrapping="Wrap"
-                                               Margin="0 15 0 0" Foreground="White"/>
+                                               Margin="0 15 0 0" Foreground="White" />
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>

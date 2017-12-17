@@ -20,12 +20,12 @@
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="QuizButton" FontFamily="Segoe MDL2 Assets" Content="&#xE7BE;"
                             Width="50" Height="50" Background="Transparent" Foreground="White" Click="QuizButton_Click"/>
-                    <TextBlock Text="Movie Quiz" FontSize="18" VerticalAlignment="Center" Foreground="White" />
+                    <TextBlock Text="Quiz" FontSize="18" VerticalAlignment="Center" Foreground="White" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="CinemaButton" FontFamily="Segoe MDL2 Assets" Content="&#xE95D;" Foreground="White"
                             Width="50" Height="50" Background="Transparent" Click="CinemaButton_Click"/>
-                    <TextBlock Text="Nearby Cinemas" FontSize="18" VerticalAlignment="Center" Foreground="White" />
+                    <TextBlock Text="Cinemas" FontSize="18" VerticalAlignment="Center" Foreground="White" />
                 </StackPanel>
             </StackPanel>
         </SplitView.Pane>

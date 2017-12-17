@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using MovieExplorer.Data.Film;
@@ -32,7 +33,19 @@ namespace MovieExplorer
         {
             ToggleProgressRing();
             var findFilmByTitleResponse = await _filmService.FindByTitle(Query.Text);
+
+            if (findFilmByTitleResponse.HasError)
+            {
+                ToggleProgressRing();
+                Feedback.Text = findFilmByTitleResponse.Error.UserMessage;
+                Feedback.Visibility = Visibility.Visible;
+                FilmResults.ItemsSource = new List<FilmModel>();
+                return;
+            }
+
+            Feedback.Visibility = Visibility.Collapsed;
             FilmResults.ItemsSource = findFilmByTitleResponse.Films;
+
             ToggleProgressRing();
         }
 

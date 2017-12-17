@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using MovieExplorer.Data.Cinema;
@@ -20,6 +21,16 @@ namespace MovieExplorer
         private async void Load(object sender, RoutedEventArgs routedEventArgs)
         {
             var nearbyCinemasResponse = await _cinemaService.GetNearbyCinemas();
+
+            if (nearbyCinemasResponse.HasError)
+            {
+                Feedback.Text = nearbyCinemasResponse.Error.UserMessage;
+                Feedback.Visibility = Visibility.Visible;
+                NearbyCinemas.ItemsSource = new List<CinemaInfo>();
+                return;
+            }
+
+            Feedback.Visibility = Visibility.Collapsed;
             NearbyCinemas.ItemsSource = nearbyCinemasResponse.Cinemas;
         }
 

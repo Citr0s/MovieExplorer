@@ -38,9 +38,9 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Margin="15">
                             <TextBlock Name="Title" TextWrapping="Wrap"></TextBlock>
-                            <TextBlock Name="Rating" FontSize="15px"></TextBlock>
-                            <TextBlock Name="Genre" FontSize="15px"></TextBlock>
-                            <TextBlock Name="Released" FontSize="15px"></TextBlock>
+                            <TextBlock Name="Rating" FontSize="15px" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Name="Genre" FontSize="15px" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Name="Released" FontSize="15px" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                         <Image Grid.Column="1"
                                    Name="Poster"
