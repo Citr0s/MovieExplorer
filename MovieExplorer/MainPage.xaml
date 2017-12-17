@@ -30,7 +30,7 @@
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
-            <Frame Name="MainFrame" Background="#111111"></Frame>
+            <Frame Name="MainFrame" Background="#111111" Navigated="MainFrame_OnNavigated" ></Frame>
         </SplitView.Content>
     </SplitView>
 </Page>

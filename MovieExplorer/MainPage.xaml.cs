@@ -1,4 +1,7 @@
-﻿using Windows.UI.Xaml;
+﻿using Windows.UI.Core;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace MovieExplorer
 {
@@ -8,6 +11,15 @@ namespace MovieExplorer
         {
             InitializeComponent();
             MainFrame.Navigate(typeof(HomePage));
+
+            SystemNavigationManager.GetForCurrentView().BackRequested += (s, x) =>
+            {
+                if (MainFrame.CanGoBack)
+                {
+                    x.Handled = true;
+                    MainFrame.GoBack();
+                }
+            };
         }
 
         private void ToggleSplitViewPane()
@@ -42,6 +54,11 @@ namespace MovieExplorer
                 ToggleSplitViewPane();
 
             MainFrame.Navigate(typeof(CinemaPage));
+        }
+
+        private void MainFrame_OnNavigated(object sender, NavigationEventArgs e)
+        {
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = ((Frame)sender).CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
         }
     }
 }
