@@ -29,5 +29,21 @@ namespace MovieExplorer.Services.Cinema
             response.Cinemas = CinemaMapper.Map(nearbyCinemasResponse.Cinemas);
             return response;
         }
+
+        public async Task<GetShowingsResponse> GetTimesByCinema(string identifier)
+        {
+            var response = new GetShowingsResponse();
+
+            var nearbyCinemasResponse = await _cinemaRepository.GetShowingsByCinema(identifier);
+
+            if (nearbyCinemasResponse.HasError)
+            {
+                response.AddError(nearbyCinemasResponse.Error);
+                return response;
+            }
+
+            response.Listings = CinemaMapper.MapListings(nearbyCinemasResponse.CinemaListing.Listings);
+            return response;
+        }
     }
 }

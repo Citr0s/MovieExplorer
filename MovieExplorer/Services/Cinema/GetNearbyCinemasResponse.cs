@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using MovieExplorer.Core.Communication;
-using MovieExplorer.Data.Cinema;
 
 namespace MovieExplorer.Services.Cinema
 {

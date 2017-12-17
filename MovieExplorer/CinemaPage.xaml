@@ -17,7 +17,7 @@
             <Button Grid.Row="0" Click="Load" Foreground="White" Margin="10 0">Click to Find Nearby Cinemas</Button>
             <ScrollViewer Grid.Row="1">
                 <StackPanel>
-                    <ListView Name="NearbyCinemas" SelectionMode="None" IsItemClickEnabled="False">
+                    <ListView Name="NearbyCinemas" ItemClick="NearbyCinemas_OnItemClick" IsItemClickEnabled="True">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="cinema:CinemaInfo">
                                 <Grid Margin="0 15">
