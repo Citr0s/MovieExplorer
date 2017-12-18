@@ -9,7 +9,7 @@ namespace MovieExplorer.Data.Cinema
     public class CinemaRepository
     {
         private readonly HttpClient _httpClient;
-        private string API_URI = "https://api.cinelist.co.uk/";
+        private readonly string API_URI = "https://api.cinelist.co.uk/";
 
         public CinemaRepository(HttpClient httpClient)
         {
@@ -22,7 +22,8 @@ namespace MovieExplorer.Data.Cinema
 
             try
             {
-                var findByTitleResponse = await _httpClient.GetAsync($"{API_URI}search/cinemas/coordinates/{latitude}/{longitude}").ConfigureAwait(false);
+                var findByTitleResponse = await _httpClient
+                    .GetAsync($"{API_URI}search/cinemas/coordinates/{latitude}/{longitude}").ConfigureAwait(false);
                 var content = await findByTitleResponse.Content.ReadAsStringAsync();
                 response.Cinemas = await Task.Run(() => JsonConvert.DeserializeObject<CinemaData>(content));
 
@@ -41,14 +42,15 @@ namespace MovieExplorer.Data.Cinema
 
             return response;
         }
-        
+
         public async Task<CinemaShowingsResponse> GetShowingsByCinema(string identifier)
         {
             var response = new CinemaShowingsResponse();
 
             try
             {
-                var findByTitleResponse = await _httpClient.GetAsync($"{API_URI}get/times/cinema/{identifier}").ConfigureAwait(false);
+                var findByTitleResponse = await _httpClient.GetAsync($"{API_URI}get/times/cinema/{identifier}")
+                    .ConfigureAwait(false);
                 var content = await findByTitleResponse.Content.ReadAsStringAsync();
                 response.CinemaListing = await Task.Run(() => JsonConvert.DeserializeObject<CinemaListing>(content));
             }

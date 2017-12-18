@@ -9,8 +9,8 @@ namespace MovieExplorer.Data.Trailer
 {
     public class TrailerRepository
     {
-        private readonly HttpClient _httpClient;
         private const string API_URI = "http://www.theimdbapi.org/api/find/movie";
+        private readonly HttpClient _httpClient;
 
         public TrailerRepository(HttpClient httpClient)
         {
@@ -23,7 +23,8 @@ namespace MovieExplorer.Data.Trailer
 
             try
             {
-                var findByTitleResponse = await _httpClient.GetAsync($"{API_URI}?title={title}&year={year}").ConfigureAwait(false);
+                var findByTitleResponse =
+                    await _httpClient.GetAsync($"{API_URI}?title={title}&year={year}").ConfigureAwait(false);
                 var content = await findByTitleResponse.Content.ReadAsStringAsync();
                 response.Trailers = await Task.Run(() => JsonConvert.DeserializeObject<List<FilmTrailerData>>(content));
             }

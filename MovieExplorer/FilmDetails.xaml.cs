@@ -8,7 +8,6 @@ using MovieExplorer.Data.Film;
 using MovieExplorer.Data.Trailer;
 using MovieExplorer.Services.Film;
 using MovieExplorer.Services.Trailer;
-using MovieExplorer.ViewModels;
 
 namespace MovieExplorer
 {
@@ -28,7 +27,7 @@ namespace MovieExplorer
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            LoadFilmDetails((string)e.Parameter);
+            LoadFilmDetails((string) e.Parameter);
         }
 
         private async void LoadFilmDetails(string identifier)

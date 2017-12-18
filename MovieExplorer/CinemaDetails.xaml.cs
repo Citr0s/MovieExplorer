@@ -7,7 +7,6 @@ using MovieExplorer.Data.Film;
 using MovieExplorer.Helpers;
 using MovieExplorer.Services.Cinema;
 using MovieExplorer.Services.Film;
-using MovieExplorer.ViewModels;
 
 namespace MovieExplorer
 {

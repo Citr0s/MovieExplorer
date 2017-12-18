@@ -12,8 +12,6 @@ namespace MovieExplorer
 {
     public sealed partial class HomePage
     {
-        public FilmModel FilmModel { get; set; }
-
         private readonly FilmService _filmService;
         private readonly StorageService _storageService;
 
@@ -30,12 +28,15 @@ namespace MovieExplorer
 
             var shouldDisplayPreviousSearches = savedFilms.Count == 0;
             ClearStorage.Visibility = shouldDisplayPreviousSearches ? Visibility.Collapsed : Visibility.Visible;
-            PreviousSearchHeading.Visibility = shouldDisplayPreviousSearches ? Visibility.Collapsed : Visibility.Visible;
+            PreviousSearchHeading.Visibility =
+                shouldDisplayPreviousSearches ? Visibility.Collapsed : Visibility.Visible;
         }
+
+        public FilmModel FilmModel { get; set; }
 
         private void FilmLayout_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            var filmModel = (FilmModel)e.ClickedItem;
+            var filmModel = (FilmModel) e.ClickedItem;
             _storageService.AddToStorage(filmModel);
             ParentFrameHelper.Navigate(this, typeof(FilmDetails), filmModel.Identifier);
         }

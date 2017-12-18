@@ -9,14 +9,12 @@ namespace MovieExplorer.Services.Cinema
         {
             var response = new List<CinemaInfo>();
             foreach (var cinema in cinemas.Cinemas)
-            {
                 response.Add(new CinemaInfo
                 {
                     Identifier = cinema.Id,
                     Name = cinema.Name,
                     DistanceDescription = $"{cinema.Distance} miles away"
                 });
-            }
             return response;
         }
 
@@ -24,13 +22,11 @@ namespace MovieExplorer.Services.Cinema
         {
             var response = new List<Listing>();
             foreach (var cinema in cinemaListingListings)
-            {
                 response.Add(new Listing
                 {
                     Title = cinema.Title,
                     Times = cinema.Times
                 });
-            }
             return response;
         }
     }

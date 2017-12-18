@@ -8,8 +8,8 @@ namespace MovieExplorer.Data.Film
 {
     public class FilmRepository
     {
-        private readonly HttpClient _httpClient;
         private const string API_URI = "http://www.omdbapi.com/?apikey=cf36ab40";
+        private readonly HttpClient _httpClient;
 
         public FilmRepository(HttpClient httpClient)
         {
@@ -45,7 +45,8 @@ namespace MovieExplorer.Data.Film
 
             try
             {
-                var findByTitleResponse = await _httpClient.GetAsync($"{API_URI}&i={imdbIdentifier}").ConfigureAwait(false);
+                var findByTitleResponse =
+                    await _httpClient.GetAsync($"{API_URI}&i={imdbIdentifier}").ConfigureAwait(false);
                 var content = await findByTitleResponse.Content.ReadAsStringAsync();
                 response.FilmDetails = await Task.Run(() => JsonConvert.DeserializeObject<FilmDetail>(content));
             }

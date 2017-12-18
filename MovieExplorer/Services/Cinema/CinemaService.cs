@@ -18,7 +18,8 @@ namespace MovieExplorer.Services.Cinema
             var response = new GetNearbyCinemasResponse();
 
             var position = await LocationHelper.GetPosition();
-            var nearbyCinemasResponse = await _cinemaRepository.GetNearbyCinemas(position.Coordinate.Latitude, position.Coordinate.Longitude);
+            var nearbyCinemasResponse =
+                await _cinemaRepository.GetNearbyCinemas(position.Coordinate.Latitude, position.Coordinate.Longitude);
 
             if (nearbyCinemasResponse.HasError)
             {

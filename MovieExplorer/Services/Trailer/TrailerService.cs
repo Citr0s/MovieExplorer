@@ -4,7 +4,7 @@ using MovieExplorer.Data.Trailer;
 
 namespace MovieExplorer.Services.Trailer
 {
-    class TrailerService
+    internal class TrailerService
     {
         private readonly TrailerRepository _trailerRepository;
 

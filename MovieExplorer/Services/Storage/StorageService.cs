@@ -18,9 +18,10 @@ namespace MovieExplorer.Services.Storage
         public List<FilmModel> GetFromStorage()
         {
             var response = new List<FilmModel>();
-            
+
             if (_localStorage.Values.ContainsKey("Films"))
-                response.AddRange(JsonConvert.DeserializeObject<List<FilmModel>>((string)_localStorage.Values["Films"]));
+                response.AddRange(
+                    JsonConvert.DeserializeObject<List<FilmModel>>((string) _localStorage.Values["Films"]));
 
             return response;
         }

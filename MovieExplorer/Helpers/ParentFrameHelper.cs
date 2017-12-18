@@ -5,7 +5,7 @@ using Windows.UI.Xaml.Media;
 
 namespace MovieExplorer.Helpers
 {
-    public  class ParentFrameHelper
+    public class ParentFrameHelper
     {
         public static bool Navigate(DependencyObject child, Type sourcePageType, object parameter)
         {

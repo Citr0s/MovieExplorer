@@ -15,52 +15,52 @@
             <Setter Property="Foreground" Value="White" />
         </Style>
     </Page.Resources>
-    
+
     <Grid>
         <ScrollViewer>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="300"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="300" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid VerticalAlignment="Top" Grid.Row="0">
                     <Image Grid.Row="0"
-                               Name="PosterBackground"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Stretch="UniformToFill">
-                    </Image>
-                    <Border  Background="Black" Opacity="0.8" />
+                           Name="PosterBackground"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Stretch="UniformToFill" />
+                    <Border Background="Black" Opacity="0.8" />
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="200" />
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Margin="15">
-                            <TextBlock Name="Title" TextWrapping="Wrap"></TextBlock>
-                            <TextBlock Name="Rating" FontSize="15px" TextWrapping="Wrap"></TextBlock>
-                            <TextBlock Name="Genre" FontSize="15px" TextWrapping="Wrap"></TextBlock>
-                            <TextBlock Name="Released" FontSize="15px" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock Name="Title" TextWrapping="Wrap" />
+                            <TextBlock Name="Rating" FontSize="15px" TextWrapping="Wrap" />
+                            <TextBlock Name="Genre" FontSize="15px" TextWrapping="Wrap" />
+                            <TextBlock Name="Released" FontSize="15px" TextWrapping="Wrap" />
                         </StackPanel>
                         <Image Grid.Column="1"
-                                   Name="Poster"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Margin="15"
-                                   Stretch="UniformToFill" />
+                               Name="Poster"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="15"
+                               Stretch="UniformToFill" />
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="1">
                     <StackPanel Margin="15">
                         <TextBlock TextWrapping="Wrap">Plot</TextBlock>
-                        <TextBlock Name="Plot" FontSize="15px" TextWrapping="Wrap"></TextBlock>
-                        <MediaElement Name="Speech" Visibility="Collapsed"/>
+                        <TextBlock Name="Plot" FontSize="15px" TextWrapping="Wrap" />
+                        <MediaElement Name="Speech" Visibility="Collapsed" />
                         <Button Margin="0 15" Click="ButtonBase_OnClick">Click to Read the Plot</Button>
 
                         <TextBlock TextWrapping="Wrap">Trailer</TextBlock>
                         <TextBlock TextWrapping="Wrap" FontSize="15px" Name="NoTrailer" Visibility="Collapsed">Sorry, we could not find a trailer for this film.</TextBlock>
                         <ProgressRing Name="TrailerSearchRing" Width="50" Height="50" Margin="15" />
-                        <MediaElement Name="Trailer"  AreTransportControlsEnabled="True" Visibility="Collapsed" AutoPlay="False"/>
+                        <MediaElement Name="Trailer" AreTransportControlsEnabled="True" Visibility="Collapsed"
+                                      AutoPlay="False" />
                     </StackPanel>
                 </Grid>
             </Grid>

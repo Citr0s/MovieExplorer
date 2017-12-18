@@ -42,7 +42,7 @@ namespace MovieExplorer
 
         private void QuizButton_Click(object sender, RoutedEventArgs e)
         {
-            if(SplitView.IsPaneOpen)
+            if (SplitView.IsPaneOpen)
                 ToggleSplitViewPane();
 
             MainFrame.Navigate(typeof(QuizPage));
@@ -58,7 +58,9 @@ namespace MovieExplorer
 
         private void MainFrame_OnNavigated(object sender, NavigationEventArgs e)
         {
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = ((Frame)sender).CanGoBack ? AppViewBackButtonVisibility.Visible : AppViewBackButtonVisibility.Collapsed;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = ((Frame) sender).CanGoBack
+                ? AppViewBackButtonVisibility.Visible
+                : AppViewBackButtonVisibility.Collapsed;
         }
     }
 }
