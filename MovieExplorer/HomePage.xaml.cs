@@ -5,6 +5,7 @@ using Windows.UI.Xaml.Controls;
 using MovieExplorer.Data.Film;
 using MovieExplorer.Helpers;
 using MovieExplorer.Services.Film;
+using MovieExplorer.Services.Storage;
 using MovieExplorer.ViewModels;
 
 namespace MovieExplorer
@@ -14,18 +15,28 @@ namespace MovieExplorer
         public FilmModel FilmModel { get; set; }
 
         private readonly FilmService _filmService;
+        private readonly StorageService _storageService;
 
         public HomePage()
         {
             InitializeComponent();
             _filmService = new FilmService(new FilmRepository(new HttpClient()));
+            _storageService = new StorageService();
 
             FilmModel = new FilmModel();
+
+            var savedFilms = _storageService.GetFromStorage();
+            PreviousSearches.ItemsSource = savedFilms;
+
+            var shouldDisplayPreviousSearches = savedFilms.Count == 0;
+            ClearStorage.Visibility = shouldDisplayPreviousSearches ? Visibility.Collapsed : Visibility.Visible;
+            PreviousSearchHeading.Visibility = shouldDisplayPreviousSearches ? Visibility.Collapsed : Visibility.Visible;
         }
 
         private void FilmLayout_OnItemClick(object sender, ItemClickEventArgs e)
         {
             var filmModel = (FilmModel)e.ClickedItem;
+            _storageService.AddToStorage(filmModel);
             ParentFrameHelper.Navigate(this, typeof(FilmDetails), filmModel.Identifier);
         }
 
@@ -53,6 +64,14 @@ namespace MovieExplorer
         {
             ProgressRing.IsActive = !ProgressRing.IsActive;
             ProgressRing.Visibility = ProgressRing.IsActive ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void ClearStorage_OnClick(object sender, RoutedEventArgs e)
+        {
+            _storageService.ClearStorage();
+            PreviousSearches.ItemsSource = _storageService.GetFromStorage();
+            PreviousSearchHeading.Visibility = Visibility.Collapsed;
+            ClearStorage.Visibility = Visibility.Collapsed;
         }
     }
 }

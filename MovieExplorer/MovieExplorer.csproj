@@ -121,6 +121,7 @@
     <Compile Include="Services\Film\FilmMapper.cs" />
     <Compile Include="Services\Film\FindDetaulsResponse.cs" />
     <Compile Include="Services\Quiz\QuizService.cs" />
+    <Compile Include="Services\Storage\StorageService.cs" />
     <Compile Include="Services\Trailer\TrailerResponse.cs" />
     <Compile Include="Services\Trailer\TrailerService.cs" />
     <Compile Include="ViewModels\FilmModel.cs" />
