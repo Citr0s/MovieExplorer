@@ -43,7 +43,7 @@ namespace MovieExplorer
                 listing.Thumbnail = possibleFilm?.Poster;
             }
 
-            CinemaListings.ItemsSource = cinemaShowingsResponse.Listings;
+            CinemaListings.ItemsSource = cinemaShowingsResponse.Listings.Where(x => x.Thumbnail != null);
         }
 
         private void CinemaListings_OnItemClick(object sender, ItemClickEventArgs e)
