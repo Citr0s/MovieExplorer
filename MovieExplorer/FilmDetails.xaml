@@ -56,7 +56,7 @@
                         <MediaElement Name="Speech" Visibility="Collapsed" />
                         <Button Margin="0 15" Click="ButtonBase_OnClick">Click to Read the Plot</Button>
 
-                        <TextBlock TextWrapping="Wrap">Trailer</TextBlock>
+                        <TextBlock TextWrapping="Wrap">You might also like</TextBlock>
                         <TextBlock TextWrapping="Wrap" FontSize="15px" Name="NoTrailer" Visibility="Collapsed">Sorry, we could not find a trailer for this film.</TextBlock>
                         <ProgressRing Name="TrailerSearchRing" Width="50" Height="50" Margin="15" />
                         <MediaElement Name="Trailer" AreTransportControlsEnabled="True" Visibility="Collapsed"
